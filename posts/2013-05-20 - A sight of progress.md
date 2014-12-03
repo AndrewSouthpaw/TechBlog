@@ -1,0 +1,1 @@
+In a class on searching, I learned the binary search. I first came across this method in 6th grade, playing a "guess what number I'm thinking of" game on my calculator. A game that I programmed. And suddenly I get flashbacks of rudimentary coding on a TI-83. Put together the if() and for() methods, but never figured out what the while() loop did... How times have changed.
