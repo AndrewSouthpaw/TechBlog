@@ -34,8 +34,9 @@ Looking for more? Browse through the toolbars.
 
 Sublime Text provides access to "macros" and "snippets" to improve productivity, both of which are highly customizable. They can sometimes provide the same functionality, but here's essentially what they're intended for:
 
-    **Snippets**: template code, conjured by typing in a key sequence and pressing `Tab`. For example: typing `for` and then `Tab` produces a standard `for` loop.
-    **Macros**: a shortcut that performs a sequence of key commands. For example: go to end of line, insert semicolon, return to where you were before.
+**Snippets**: template code, conjured by typing in a key sequence and pressing `Tab`. For example: typing `for` and then `Tab` produces a standard `for` loop.
+
+**Macros**: a shortcut that performs a sequence of key commands. For example: go to end of line, insert semicolon, return to where you were before.
 
 Tinkering with macros and snippets can seem like a daunting task. I promise you will be glad you did. You can learn in small blocks -- don't expect to customize everything all at once. If you're concerned about it being a waste of time, I point you to this XKCD comic.
 
@@ -103,7 +104,7 @@ You'll replace `<keys you want>` using this [list of possible keys](http://subli
 
 Here are some of my favorites that I've built or learned from the Internet. You can either copy the code and save as `.sublime-macro` files in your `~/Library/Application Support/Sublime Text 2/Packages/User` folder, or reproduce by recording your own macro.
 
-**Insert semi-colon at end of line**
+##### Insert semi-colon at end of line
 Great for tagging on the semi-colon as you're working.
 The code:
 
@@ -121,7 +122,8 @@ The keybinding:
       "keys": ["super+;"], "command": "run_macro_file", "args": {"file": "Packages/User/EndOfLineSemicolon.sublime-macro"}
     }
 
-**Delete and finish with a tab**
+##### Delete and finish with a tab
+
 Tired of deleting a tab *and then* clicking the tab button? Do them both at once, and get yourself on the correct indentation automatically!
 
     [
@@ -145,7 +147,8 @@ The keybinding:
       }
 
 
-** Clear the current line**
+##### Clear the current line
+
 Editing in the middle of a line and want to throw it all away? Instead of going to the end, highlighting everything, and deleting, just use this macro.
 
 The code:
