@@ -1,6 +1,25 @@
 
 Writing tests in Mocha/Chai can be intimidating to a junior developer. Here are a few steps I used to make that world less scary. For this post, we will focus on the bare minimum to get you testing quickly using the browser.
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+---
+# Table of Contents  
+*generated with hacked version of [DocToc](http://doctoc.herokuapp.com/)*
+
+- [Ground assumptions.](#groundassumptions)
+- [Build your template testing folder.](#buildyourtemplatetestingfolder)
+    - [Download the files.](#downloadthefiles)
+    - [Create your boilerplate.](#createyourboilerplate)
+    - [Organize your files for easy import to a new project.](#organizeyourfilesforeasyimporttoanewproject)
+- [Set up your text editing environment (in Sublime).](#setupyourtexteditingenvironmentinsublime)
+- [Start testing!](#starttesting)
+
+---
+
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Ground assumptions.
 
 This post assumes you already have Node and npm installed. If you don't, follow one of the many tutorials out to get them.

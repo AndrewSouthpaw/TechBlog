@@ -1,4 +1,24 @@
+
 Inspired by the capabilities of the [D3](http://d3js.org/) library, I have embarked on a project to [visualize common data structures and algorithms](http://www.andrewsouthpaw.com/Visualizations-of-Data-and-Algorithms/). So far, I have created demonstrations for bubble sort and quicksort. This post will recount an interesting design challenge I encountered.
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+---
+# Table of Contents  
+*generated with hacked version of [DocToc](http://doctoc.herokuapp.com/)*
+
+- [The problem: how to pause JavaScript for animation](#theproblemhowtopausejavascriptforanimation)
+- [Attempt #1: "Pausing" JavaScript](#attempt1pausingjavascript)
+- [Attempt #2: Nested `setTimeout` functions](#attempt2nestedsettimeoutfunctions)
+- [Attempt #3: Custom library](#attempt3customlibrary)
+- [Attempt #4: store animations to playback later](#attempt4storeanimationstoplaybacklater)
+- [Future possibility: queuing animations](#futurepossibilityqueuinganimations)
+- [Future work](#futurework)
+- [Final thoughts](#finalthoughts)
+
+---
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # The problem: how to pause JavaScript for animation
 
