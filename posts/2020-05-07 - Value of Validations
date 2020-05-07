@@ -1,0 +1,45 @@
+# The Value of Validations
+
+A quick story in the importance of database-level validations...
+
+At Transparent Classroom, teachers are allowed to react to photos uploaded by parents with either a Heart or a Thumbs Up.
+
+![](https://i.imgur.com/mmTXQzj.gif)
+
+Much like Facebook, you can only have reaction for a post. If you click Heart and then Thumbs Up, it will change your reaction rather than create a new one.
+
+A simple solution to this on the server side could look like:
+
+```ruby
+def create
+  if (reaction = @post.reactions.find_by user: current_user)
+    reaction.update! code: params[:reaction]
+  else
+    @post.reactions.create! user: current_user, code: params[:reaction]
+  end
+  # ...
+end
+```
+
+A pretty common pattern, but there's a sneaky race condition in this code. Can you find it?
+
+Our users were able to find it. Turns out that a combination of clicking different reactions in rapid succession, combined with the database occasionally being slightly slower, means that the system can break.
+
+If a `sleep 3` was added before `@post.reactions.create!` it's easy to trigger. On the first request, the DB is checked for the presence of a reaction, finds none, and then starts the (artificially slow) process of creating a reaction. Meanwhile, a second request comes in, similarly doesn't (yet) find a reaction in the DB, and also starts to create a different reaction for the same post.
+
+Wa wa wa.
+
+Luckily, we had put a Rails model validation on our `Reaction`:
+
+```ruby
+class Reaction
+  validates :user_id, presence: true, uniqueness: { scope: :post_id }
+  # ...
+end
+```
+
+What could've led to bad data in the system instead simply triggered a 500 that we could detect and recover from.
+
+Remember kids: latency is the root of many system errors. Even a simple system like ours (no distributed systems, simple lookup, a couple lines of code, etc.) can have edge cases that are easy to miss but likely to encounter.
+
+Latency is exceptionally hard to account for correctly, and it takes a lot of extra time and careful design. We like to move fast, so a decent middle ground is to add validations to protect against bad data and then to fix bugs due to latency when they're triggered in the real world.
